@@ -1,0 +1,8 @@
+[Unit]
+Description=screen-lock-idle
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/hypridle
+Restart=on-failure
+RestartSec=3

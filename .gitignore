@@ -1,0 +1,11 @@
+.build/
+**/target/
+**/build/
+__pycache__/
+*.pyc
+*.log
+.env*
+*.pem
+*.key
+backups/
+home/.config/hypr/local.lua

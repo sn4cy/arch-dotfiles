@@ -1,0 +1,6 @@
+# Background transparency and blur.
+background-opacity = 0.85
+background-blur = true
+window-theme = ghostty
+theme = TokyoNight
+font-size = 11

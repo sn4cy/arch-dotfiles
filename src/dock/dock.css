@@ -1,0 +1,195 @@
+window {
+  background-color: transparent;
+}
+
+.dock-panel {
+  background-color: transparent;
+  background-image: linear-gradient(155deg, rgba(245, 251, 255, 0.32), rgba(162, 193, 226, 0.08) 32%, rgba(14, 25, 40, 0.23) 65%, rgba(232, 246, 255, 0.22));
+  border: 1px solid rgba(237, 246, 255, 0.50);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(214, 228, 244, 0.19);
+  border-radius: 23px;
+  padding: 5px 7px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.24), inset 0 -1px 0 rgba(190, 216, 244, 0.10), 0 7px 20px rgba(0, 0, 0, 0.32);
+}
+
+.dock-item,
+.add-button {
+  min-width: 42px;
+  min-height: 42px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 15px;
+  background: transparent;
+  box-shadow: none;
+  transition: 130ms ease;
+}
+
+.dock-item:hover,
+.add-button:hover {
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.23), rgba(255, 255, 255, 0.07));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.dock-item:active,
+.add-button:active {
+  background-color: rgba(255, 255, 255, 0.21);
+}
+
+.dock-item.running {
+  border-bottom: 3px solid #c5e6ff;
+}
+
+.dock-item.running.minimized {
+  border-bottom-color: rgba(255, 255, 255, 0.42);
+  opacity: 0.72;
+}
+
+.dock-separator {
+  min-width: 1px;
+  margin: 7px 1px;
+  background-image: linear-gradient(to bottom, transparent, rgba(240, 248, 255, 0.30), transparent);
+}
+
+.trigger-window,
+.reserve-window {
+  background-color: transparent;
+}
+
+.preview-panel {
+  background-color: rgba(20, 22, 28, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 15px;
+  padding: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.48);
+}
+
+.preview-card {
+  background-color: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.preview-card:hover {
+  background-color: rgba(255, 255, 255, 0.10);
+  border-color: rgba(138, 180, 248, 0.55);
+}
+
+.preview-card.minimized {
+  opacity: 0.78;
+}
+
+.preview-image-button {
+  min-width: 230px;
+  min-height: 130px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background-color: rgba(5, 7, 11, 0.76);
+  box-shadow: none;
+}
+
+.preview-image-button:hover {
+  background-color: rgba(5, 7, 11, 0.92);
+}
+
+.preview-title {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.preview-status {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+}
+
+.preview-action {
+  min-width: 25px;
+  min-height: 25px;
+  padding: 0;
+  border-radius: 7px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.preview-action:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.picker-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.picker-detail {
+  color: alpha(currentColor, 0.65);
+  font-size: 12px;
+}
+
+.dock-clock {
+  min-height: 42px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background-image: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.09));
+  color: #e8e8e9;
+  box-shadow: none;
+}
+.dock-clock:hover { background: rgba(255, 255, 255, 0.08); }
+.dock-clock.running { color: #fff; border-color: rgba(255, 255, 255, 0.32); }
+.dock-clock.finished { color: #f4ce8c; background: rgba(244, 206, 140, 0.15); }
+.dock-clock-value { font-family: monospace; font-size: 14px; font-weight: 600; }
+.timekeeper-popover {
+  background-image: linear-gradient(145deg, rgba(38, 38, 40, 0.86), rgba(5, 5, 7, 0.92));
+  background-color: transparent;
+  color: #f4f4f5;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.10), 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+.clock-controls { background: transparent; }
+.clock-tabs { background: rgba(0, 0, 0, 0.28); border-radius: 9px; padding: 3px; }
+.clock-controls button {
+  background-image: none; box-shadow: none; text-shadow: none;
+  border: 1px solid transparent; border-radius: 7px;
+  min-height: 0; min-width: 0; padding: 5px 8px;
+  color: #aaa; background-color: transparent;
+}
+.clock-controls button:hover { background-color: rgba(255, 255, 255, 0.12); color: #fff; }
+.clock-controls .clock-tab { font-size: 11px; }
+.clock-controls .clock-tab:checked { background-color: rgba(255, 255, 255, 0.13); color: #fff; border-color: rgba(255, 255, 255, 0.07); }
+.clock-display { font-family: monospace; font-size: 36px; font-weight: 300; letter-spacing: -1px; color: #fafafa; margin-top: 6px; }
+.clock-status { color: #929294; font-size: 10px; margin-bottom: 4px; }
+.clock-field-label { color: #999; font-size: 9px; }
+.clock-controls spinbutton { background: rgba(0, 0, 0, 0.28); color: #eee; border: 1px solid rgba(255, 255, 255, 0.10); border-radius: 8px; box-shadow: none; }
+.clock-controls spinbutton entry { background: transparent; color: #eee; font-family: monospace; font-size: 13px; padding: 5px; box-shadow: none; border: 0; min-width: 24px; }
+.clock-controls spinbutton button { padding: 3px; min-width: 12px; border-radius: 5px; }
+.clock-controls .clock-preset { background: rgba(255, 255, 255, 0.04); font-size: 10px; padding: 4px 6px; }
+.clock-controls .clock-primary { background: #e7e7e8; color: #111; font-weight: 600; padding: 8px 12px; }
+.clock-controls .clock-primary:hover { background: #fff; color: #111; }
+.clock-controls .clock-reset { border-color: rgba(255, 255, 255, 0.12); color: #ccc; padding: 8px 12px; }
+
+/* Alternate appearances share geometry, keeping hover targets stable. */
+.theme-obsidian .dock-panel { background-image: none; background-color: rgba(9, 9, 11, 0.94); border-color: #343437; box-shadow: inset 0 1px rgba(255,255,255,0.04), 0 8px 20px rgba(0,0,0,0.35); }
+.theme-frost .dock-panel { background-image: linear-gradient(145deg, rgba(255,255,255,0.91), rgba(221,232,242,0.76)); border-color: rgba(255,255,255,0.85); box-shadow: inset 0 1px #fff, 0 8px 20px rgba(0,0,0,0.20); }
+.theme-midnight .dock-panel { background-image: linear-gradient(145deg, rgba(35,57,94,0.93), rgba(12,23,43,0.89)); border-color: rgba(151,185,240,0.38); }
+.theme-frost .dock-clock { color: #1e3142; border-color: rgba(20,40,60,0.18); background: rgba(255,255,255,0.25); }
+.theme-frost .add-button { color: #203344; }
+.theme-frost .dock-item.running { border-bottom-color: #427da5; }
+.theme-frost .dock-separator { background: rgba(30,50,70,0.20); }
+.theme-obsidian .preview-panel { background-color: rgba(9,9,11,0.96); }
+.theme-midnight .preview-panel { background-color: rgba(15,28,49,0.95); }
+.theme-frost .preview-panel { background-color: rgba(235,241,248,0.96); color: #203344; }
+.theme-frost .preview-status { color: #728395; }
+.appearance-popover { background: rgba(14,17,22,0.96); color: #eef3f8; border: 1px solid rgba(255,255,255,0.20); border-radius: 16px; }
+.appearance-heading { color: #aeb9c5; font-size: 11px; }
+.theme-option { background: transparent; background-image: none; border: 0; border-radius: 10px; padding: 8px; box-shadow: none; color: #ecf3fa; text-shadow: none; }
+.theme-option:hover { background: rgba(255,255,255,0.09); }
+.theme-description { color: #8f9dab; font-size: 10px; }
+.theme-swatch { border: 1px solid rgba(255,255,255,0.30); border-radius: 9px; }
+.swatch-glass { background-image: linear-gradient(135deg, rgba(246,252,255,0.55), rgba(155,187,223,0.12), rgba(216,239,255,0.45)); }
+.swatch-obsidian { background: #0b0b0e; }
+.swatch-frost { background-image: linear-gradient(135deg, #fff, #c8d9e8); }
+.swatch-midnight { background-image: linear-gradient(135deg, #375785, #0d192f); }

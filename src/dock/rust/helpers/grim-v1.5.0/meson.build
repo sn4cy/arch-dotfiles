@@ -1,0 +1,77 @@
+project(
+	'grim',
+	'c',
+	version: '1.5.0',
+	license: 'MIT',
+	meson_version: '>=0.59.0',
+	default_options: ['c_std=c11', 'warning_level=3', 'werror=true'],
+)
+
+cc = meson.get_compiler('c')
+
+add_project_arguments(cc.get_supported_arguments([
+	'-Wno-unused-parameter',
+	'-Wundef',
+]), language: 'c')
+
+png = dependency('libpng')
+jpeg = dependency('libjpeg', required: get_option('jpeg'))
+math = cc.find_library('m')
+pixman = dependency('pixman-1')
+realtime = cc.find_library('rt')
+wayland_client = dependency('wayland-client')
+
+is_le = host_machine.endian() == 'little'
+add_project_arguments([
+	'-D_POSIX_C_SOURCE=200809L',
+	'-DGRIM_LITTLE_ENDIAN=@0@'.format(is_le.to_int()),
+	'-DHAVE_JPEG=@0@'.format(jpeg.found().to_int()),
+], language: 'c')
+
+subdir('contrib/completions')
+subdir('protocol')
+
+grim_files = [
+	'box.c',
+	'buffer.c',
+	'main.c',
+	'output-layout.c',
+	'render.c',
+	'write_ppm.c',
+	'write_png.c',
+]
+
+grim_deps = [
+	math,
+	pixman,
+	png,
+	realtime,
+	wayland_client,
+]
+
+if jpeg.found()
+	grim_files += ['write_jpg.c']
+	grim_deps += [jpeg]
+endif
+
+executable(
+	'grim',
+	[files(grim_files), protocols_src],
+	dependencies: grim_deps,
+	include_directories: 'include',
+	install: true,
+)
+
+subdir('doc')
+
+summary({
+	'JPEG': jpeg.found(),
+	'Manual pages': scdoc.found(),
+}, bool_yn: true)
+
+executable(
+    'test-capture-failure',
+    [files('test-capture-failure.c'), files('box.c', 'buffer.c', 'output-layout.c', 'render.c', 'write_ppm.c', 'write_png.c', 'write_jpg.c'), protocols_src],
+    dependencies: grim_deps,
+    include_directories: 'include',
+)

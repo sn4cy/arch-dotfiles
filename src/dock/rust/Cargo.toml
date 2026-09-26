@@ -1,0 +1,19 @@
+[package]
+name = "floating-dock"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+gtk = "=0.18.2"
+gdk = "=0.18.2"
+gdk-pixbuf = "=0.18.5"
+gio = "=0.18.4"
+glib = "=0.18.5"
+serde_json = "=1.0.150"
+libc = "=0.2.183"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true

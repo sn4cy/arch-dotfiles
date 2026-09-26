@@ -1,0 +1,8 @@
+[Unit]
+Description=floating-dock
+After=graphical-session.target
+
+[Service]
+ExecStart="%h/.local/bin/floating-dock"
+Restart=on-failure
+RestartSec=3

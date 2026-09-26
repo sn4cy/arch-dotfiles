@@ -1,0 +1,8 @@
+[Unit]
+Description=fast-alt-tab
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/quickshell -p "%h/.config/hypr/alt-tab"
+Restart=on-failure
+RestartSec=3
